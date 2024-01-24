@@ -1,5 +1,5 @@
 class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
 
         dict = {}
 

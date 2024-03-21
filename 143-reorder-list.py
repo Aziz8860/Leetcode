@@ -21,7 +21,7 @@ def reorderList(self, head: Optional[ListNode]) -> None:
     # merge to halfs
     first, second = head, prev
     while second:
-        tmp1, tmp2 = first.next
+        tmp1, tmp2 = first.next, second.next
         first.next = second
         second.next = tmp1 # inserting second node in between first and first.next
         first, second = tmp1, tmp2

@@ -23,5 +23,5 @@ def reorderList(self, head: Optional[ListNode]) -> None:
     while second:
         tmp1, tmp2 = first.next
         first.next = second
-        second.next = tmp1
+        second.next = tmp1 # inserting second node in between first and first.next
         first, second = tmp1, tmp2

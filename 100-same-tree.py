@@ -11,6 +11,7 @@ def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q: # structurally same
             return True
         
+        # sama aja: if not p or not q
         if (p and not q) or (q and not p): # structurally different
             return False
         

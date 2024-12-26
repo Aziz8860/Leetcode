@@ -1,16 +1,16 @@
 def isAnagram(s: str, t: str) -> bool:
-    sDict = {}
+    if len(s) != len(t):
+            return False
+        
+    count_s = {}
+    count_t = {}
 
-    for i in s:
-        sDict[i] = sDict.get(i, 0) + 1
+    for char in s:
+        count_s[char] = count_s.get(char, 0) + 1
+    for char in t:
+        count_t[char] = count_t.get(char, 0) + 1
     
-    for j in t:
-        sDict[j] = sDict.get(j, 0) - 1
-
-    if all(value == 0 for value in sDict.values()):
-        return True
-    else:
-        return False
+    return count_s == count_t
     
     # neetcode's solution 1
     # if len(s) != len(t):

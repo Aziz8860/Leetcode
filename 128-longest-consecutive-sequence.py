@@ -1,22 +1,13 @@
 def longestConsecutive(nums: list[int]) -> int:
-    # Handle edge case where nums is empty
-    if not nums: 
-        return 0
+    # cannot use sort because O(n log n)
+    numSet = set(nums)
+    longest = 0
 
-    nums.sort()
-
-    longest = 1
-    current_streak = 1
-
-    for i in range(1, len(nums)):
-        if nums[i] == nums[i-1]:
-            continue
-        elif nums[i] == nums[i-1] + 1:
-            # Consecutive number, increment the current streak
-            current_streak += 1
-        else:
-            # Sequence breaks, update the longest streak and reset current streak
-            longest = max(longest, current_streak)
-            current_streak = 1
-    
-    return max(longest, current_streak)
+    for n in nums:
+        # check if its the start of a sequence
+        if (n - 1) not in numSet:
+            length = 0
+            while (n + length) in numSet:
+                length += 1
+            longest = max(length, longest)
+    return longest
